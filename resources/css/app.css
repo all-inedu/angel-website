@@ -1,0 +1,23 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+    font-family: "Adobe Caslon Pro";
+    font-weight: 700;
+    src: url("../../public/assets/fonts/adobe-caslon-pro/ACaslonPro-Bold.otf");
+}
+
+@font-face {
+    font-family: "Adobe Caslon Pro";
+    font-weight: 600;
+    src: url("../../public/assets/fonts/adobe-caslon-pro/ACaslonPro-Semibold.otf");
+}
+
+@font-face {
+    font-family: "Adobe Caslon Pro";
+    font-weight: 400;
+    src: url("../../public/assets/fonts/adobe-caslon-pro/ACaslonPro-Regular.otf");
+}
