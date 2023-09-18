@@ -54,6 +54,10 @@ a:hover {
 /*--------------------------------------------------------------
 # Table
 --------------------------------------------------------------*/
+table.dataTable thead>tr>th.sorting {
+    vertical-align: middle;
+    text-align: start;
+}
 table tr,
 table td {
     color: var(--black);

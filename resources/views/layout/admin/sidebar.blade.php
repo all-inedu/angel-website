@@ -4,7 +4,7 @@
     <div>
         <div class="brand-logo d-flex align-items-center justify-content-between">
             <a href="{{ route('admin.dashboard') }}" class="text-nowrap logo-img pt-4 pb-2">
-                <img src="{{ asset('images/logo/logo.png') }}" width="170" alt="" loading="lazy"/>
+                <img src="{{ asset('images/logo/logo.webp') }}" width="170" alt="" loading="lazy"/>
             </a>
             <div class="close-btn d-xl-none d-block sidebartoggler cursor-pointer" id="sidebarCollapse">
                 <i class="ti ti-x fs-8"></i>
@@ -30,11 +30,11 @@
                     <span class="hide-menu">MENU</span>
                 </li>
                 <li class="sidebar-item">
-                    <a class="sidebar-link {{ request()->is('admin/change-making-project*') ? 'active' : '' }}" href="{{ route('admin.change_making_project') }}">
+                    <a class="sidebar-link {{ request()->is('admin/projects*') ? 'active' : '' }}" href="{{ route('admin.projects') }}">
                         <span>
                             <i class="ti ti-folders"></i>
                         </span>
-                        <span class="hide-menu">Change Making Project</span>
+                        <span class="hide-menu">Projects</span>
                     </a>
                 </li>
                 <li class="sidebar-item">
@@ -42,7 +42,7 @@
                         <span>
                             <i class="ti ti-award"></i>
                         </span>
-                        <span class="hide-menu">Award & Achievement</span>
+                        <span class="hide-menu">Awards & Achievements</span>
                     </a>
                 </li>
                 <li class="sidebar-item">
@@ -50,7 +50,7 @@
                         <span>
                             <i class="ti ti-speakerphone"></i>
                         </span>
-                        <span class="hide-menu">Speaking Opportunities</span>
+                        <span class="hide-menu">Other Activities</span>
                     </a>
                 </li>
                 <li class="sidebar-item">

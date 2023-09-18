@@ -13,7 +13,7 @@
             <ul class="navbar-nav flex-row ms-auto align-items-center justify-content-end">
                 <li class="nav-item">
                     <a class="nav-link nav-icon-hover" aria-expanded="false">
-                        <img src="{{ asset('images/profile/profile.png') }}" alt="" width="55" height="55" class="rounded-circle header-profile" loading="lazy"/>
+                        <img src="{{ asset('images/profile/profile.webp') }}" alt="" width="55" height="55" class="rounded-circle header-profile" loading="lazy"/>
                     </a>
                 </li>
             </ul>

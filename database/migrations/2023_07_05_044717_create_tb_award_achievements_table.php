@@ -15,8 +15,8 @@ return new class extends Migration
             $table->id();
             $table->string('competition_name');
             $table->string('award_name');
-            $table->text('image');
-            $table->string('alt');
+            $table->text('image')->nullable();
+            $table->string('alt')->nullable();
             $table->date('competition_date')->nullable();
             $table->timestamps();
         });

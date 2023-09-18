@@ -4,8 +4,8 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Danya Website</title>
-    <link rel="shortcut icon" type="image/png" href="{{ asset('images/profile/profile.png') }}" />
+    <title>Angel Website</title>
+    <link rel="shortcut icon" type="image/png" href="{{ asset('images/profile/profile.webp') }}" />
 
     {{-- SweetAlert --}}
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2/dist/sweetalert2.all.min.js"></script>
@@ -26,8 +26,10 @@
     {{-- TinyMCE --}}
     <script src="https://cdn.tiny.cloud/1/h7t62ozvqkx2ifkeh051fsy3k9irz7axx1g2zitzpbaqfo8m/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
 
-    <link rel="stylesheet" href="{{ asset('css/styles.css') }}" />
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}" />
     <link rel="stylesheet" href="{{ asset('css/admin/app.css') }}" />
+    @vite('public/css/style.css')
+    @vite('public/css/admin/app.css')
     @yield('css')
 </head>
 

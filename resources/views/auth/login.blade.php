@@ -5,9 +5,11 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Mentee Project</title>
-    <link rel="shortcut icon" type="image/png" href="{{ asset('images/profile/profile.png') }}" />
-    <link rel="stylesheet" href="{{ asset('css/styles.css') }}" />
+    <link rel="shortcut icon" type="image/png" href="{{ asset('images/profile/profile.webp') }}" />
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}" />
     <link rel="stylesheet" href="{{ asset('css/admin/app.css') }}" />
+    @vite('public/css/style.css')
+    @vite('public/css/admin/app.css')
 </head>
 <body class="login">
     <div class="container">
@@ -17,7 +19,7 @@
                 <div class="col-lg-4 col-md-6 d-flex flex-column align-items-center justify-content-center">
                     <div class="d-flex justify-content-center py-4"> 
                         <a href="/" class="logo d-flex align-items-center w-auto">
-                            <img class="img-fluid" src="{{ asset('images/logo/logo.png') }}" alt="" width="200" loading="lazy">
+                            <img class="img-fluid" src="{{ asset('images/logo/logo.webp') }}" alt="" width="200" loading="lazy">
                         </a>
                     </div>
                     <div class="card mb-3">
