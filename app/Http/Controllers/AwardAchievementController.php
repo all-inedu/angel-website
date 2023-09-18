@@ -23,16 +23,20 @@ class AwardAchievementController extends Controller
             return DataTables::of($data)
             ->addIndexColumn()
             ->editColumn('image', function($d){
-                $path = asset('uploaded_files/'.'award_achievement/'.$d->created_at->format('Y').'/'.$d->created_at->format('m').'/'.$d->image);
-                $result = '
-                    <img data-original="'.$path.'" src="'.$path.'" alt="'.$d->alt.'" width="150" loading="lazy">
-                ';
+                if ($d->image) {
+                    $path = asset('uploaded_files/'.'award_achievement/'.$d->created_at->format('Y').'/'.$d->created_at->format('m').'/'.$d->image);
+                    $result = '
+                        <img data-original="'.$path.'" src="'.$path.'" alt="'.$d->alt.'" width="150" loading="lazy">
+                    ';
+                } else {
+                    $result = '-';
+                }
                 return $result;
             })
             ->editColumn('competition_date', function($d){
                 if ($d->competition_date) {
                     $result = '
-                        '.date('F Y', strtotime($d->competition_date)).'
+                        '.date('Y', strtotime($d->competition_date)).'
                     ';
                 } else {
                     $result = '-';
@@ -41,7 +45,7 @@ class AwardAchievementController extends Controller
             })
             ->editColumn('action', function($d){
                 $result = '
-                <div class="d-flex flex-row justify-content-center gap-1">
+                <div class="d-flex flex-column align-items-center justify-content-center gap-1">
                     <a type="button" class="btn btn-warning bg-warning" href="/admin/award-achievement/'.$d->id.'/edit">
                         <i class="ti ti-edit fs-4" data-bs-toggle="tooltip" data-bs-title="Edit this Award & Achievement"></i>
                     </a>
@@ -65,8 +69,8 @@ class AwardAchievementController extends Controller
         $request->validate([
             'competition_name' => 'required',
             'award_name' => 'required',
-            'image' => 'required|mimes:jpeg,jpg,png,bmp,webp|max:2048',
-            'alt' => 'required',
+            'image' => 'nullable|mimes:jpeg,jpg,png,bmp,webp|max:2048',
+            'alt' => 'nullable',
             'competition_date' => 'nullable',
         ]);
 
@@ -86,9 +90,7 @@ class AwardAchievementController extends Controller
                 $award_achievement->image = $fileName;
             }
             if ($request->competition_date) {
-                $award_achievement->competition_date = Carbon::createFromFormat('Y-m', $request->competition_date)->day(1);
-            } else {
-                $award_achievement->competition_date = null;
+                $award_achievement->competition_date = Carbon::createFromFormat('Y', $request->competition_date)->month(1)->day(1);
             }
             $award_achievement->save();
             DB::commit();

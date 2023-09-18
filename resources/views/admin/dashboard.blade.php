@@ -1,4 +1,12 @@
 @extends('layout.admin.app')
+@section('css')
+    <style>
+        .card .card-body a {
+            width: fit-content;
+            display: block;
+        }
+    </style>
+@endsection
 @section('content')
 <div class="col-md-12 card shadow-none position-relative overflow-hidden m-0" style="background: var(--light-red)">
     <div class="card-body px-4 py-2">
@@ -21,13 +29,13 @@
             <div class="card-body">
                 <div class="row align-items-start">
                     <div class="col-md-8 col">
-                        <a href="{{ route('admin.change_making_project') }}">
+                        <a href="{{ route('admin.projects') }}">
                             <h5 class="card-title mb-9 fw-semibold">
-                                Change Making Project
+                                Projects
                             </h5>
                         </a>
                         <h4 class="fw-semibold mb-3">
-                            {{ $change_making_projects->count() }}
+                            {{ $projects->count() }}
                         </h4>
                         <div class="d-flex align-items-center pb-1">
                             <span
@@ -60,11 +68,11 @@
                     <div class="col-md-8 col">
                         <a href="{{ route('admin.award_achievement') }}">
                             <h5 class="card-title mb-9 fw-semibold">
-                                Award & Achievements
+                                Awards & Achievements
                             </h5>
                         </a>
-                        <h4 class="fw-semibold mb-3">
-                            {{ $award_achievements->count() }}
+                        <h4 class="fw-semibold mb-3">0
+                            {{-- {{ $award_achievements->count() }} --}}
                         </h4>
                         <div class="d-flex align-items-center pb-1">
                             <span
@@ -99,11 +107,11 @@
                     <div class="col-md-8 col">
                         <a href="{{ route('admin.speaking_opportunities') }}">
                             <h5 class="card-title mb-9 fw-semibold">
-                                Speaking Opportunities
+                                Other Activities
                             </h5>
                         </a>
-                        <h4 class="fw-semibold mb-3">
-                            {{ $speaking_opportunities->count() }}
+                        <h4 class="fw-semibold mb-3">0
+                            {{-- {{ $speaking_opportunities->count() }} --}}
                         </h4>
                         <div class="d-flex align-items-center pb-1">
                             <span

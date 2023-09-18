@@ -64,7 +64,7 @@
                         </div>
                     </div>
                     <div class="form-group row flex-md-row flex-column align-items-center mb-0">
-                        <label class="col-md-3 text-md-end text-start control-label col-form-label" for="">Image <span class="fs-4" style="color: crimson">*</span></label>
+                        <label class="col-md-3 text-md-end text-start control-label col-form-label" for="">Image</label>
                         <div class="col-md-9 input-field border-start pb-2 pt-md-2">
                             <input class="form-control" type="file" id="image" name="image" onchange="previewImage()">
                             <div class="col d-none d-flex justify-content-start mt-2" id="img_preview_box">
@@ -76,7 +76,7 @@
                         </div>
                     </div>
                     <div class="form-group row flex-md-row flex-column align-items-center mb-0">
-                        <label class="col-md-3 text-md-end text-start control-label col-form-label" for="">Alt <span class="fs-4" style="color: crimson">*</span></label>
+                        <label class="col-md-3 text-md-end text-start control-label col-form-label" for="">Alt</label>
                         <div class="col-md-9 input-field border-start pb-2 pt-md-2">
                             <input type="text" class="form-control" name="alt" value="{{ old('alt') }}" placeholder="Alt">
                             @error('alt')
@@ -87,7 +87,7 @@
                     <div class="form-group row flex-md-row flex-column align-items-center mb-0">
                         <label class="col-md-3 text-md-end text-start control-label col-form-label" for="">Competition Date</label>
                         <div class="col-md-3 input-field border-start pb-2 pt-md-2">
-                            <input type="month" class="form-control" name="competition_date" value="{{ old('competition_date') }}">
+                            <input type="number" class="form-control" name="competition_date" value="{{ old('competition_date') }}" placeholder="YYYY" min="1999">
                             @error('competition_date')
                                 <small class="alert text-danger ps-0">{{ $message }}</small>
                             @enderror

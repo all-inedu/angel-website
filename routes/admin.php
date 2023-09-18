@@ -3,10 +3,10 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AwardAchievementController;
-use App\Http\Controllers\ChangeMakingProjectController;
 use App\Http\Controllers\ChangePasswordController;
 use App\Http\Controllers\ContactWithMeController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\ProjectsController;
 use App\Http\Controllers\SpeakingOpportunitiesController;
 
 Route::prefix('admin')->name('admin.')->group(function(){
@@ -20,16 +20,16 @@ Route::prefix('admin')->name('admin.')->group(function(){
         Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
         Route::post('/logout_handler', [AdminController::class, 'logoutHandler'])->name('logout_handler');
 
-        // Change Making Project
-        Route::controller(ChangeMakingProjectController::class)->group(function () {
-            Route::get('/change-making-project', 'index')->name('change_making_project');
-            Route::get('/change-making-project/data', 'getChangeMakingProject')->name('data_change_making_project');
-            Route::get('/change-making-project/create', 'create')->name('create_change_making_project');
-            Route::post('/change-making-project/store', 'store')->name('store_change_making_project');
-            Route::get('/change-making-project/{id}/edit', 'edit')->name('edit_change_making_project');
-            Route::post('/change-making-project/{id}/update', 'update')->name('update_change_making_project');
-            Route::post('/change-making-project/delete/{id}', 'delete')->name('delete_change_making_project');
-            Route::post('/change-making-project/highlight/{id}', 'set_highlight')->name('highlight_change_making_project');
+        // Projects
+        Route::controller(ProjectsController::class)->group(function () {
+            Route::get('/projects', 'index')->name('projects');
+            Route::get('/projects/data', 'getProjects')->name('data_projects');
+            Route::get('/projects/create', 'create')->name('create_projects');
+            Route::post('/projects/store', 'store')->name('store_projects');
+            Route::get('/projects/{id}/edit', 'edit')->name('edit_projects');
+            Route::post('/projects/{id}/update', 'update')->name('update_projects');
+            Route::post('/projects/delete/{id}', 'delete')->name('delete_projects');
+            Route::post('/projects/highlight/{id}', 'set_highlight')->name('highlight_projects');
         });
 
         // Award & Achievement
