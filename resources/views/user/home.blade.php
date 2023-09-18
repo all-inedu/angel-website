@@ -69,8 +69,8 @@
 
             <div class="py-10">
                 <ul class="flex flex-col gap-x-4 gap-y-10">
-                    @foreach ($change_making_projects as $item)
-                        <li class="flex flex-col md:flex-row gap-x-4">
+                    @foreach ($projects as $item)
+                        <li class="flex flex-col md:flex-row gap-x-16">
                             <div class="w-full">
                                 <h4 class="mb-2 font-primary font-bold text-3xl text-primary lg:text-4xl lg:-mb-0">
                                     {{ $item->organization_name }}
@@ -80,14 +80,20 @@
                                         {{ $item->roles }}
                                     </span>
                                 </div>
-                                @if ($item->end_date)
+                                @if ($item->start_date)
                                     <div class="mt-3">
                                         <span class="font-secondary text-grey text-base lg:text-xl">
-                                            {{ date("F Y", strtotime($item->end_date)) }}
+                                            {{ date("F Y", strtotime($item->start_date)) }} - {{ date("F Y", strtotime($item->end_date)) }}
                                         </span>
                                     </div>
                                 @endif
-                            </div>
+                                @if ($item->image)
+                                    <div class="w-full mt-4">
+                                        <img src="{{ asset('uploaded_files/projects/' . $item->created_at->format('Y') . '/' . $item->created_at->format('m') . '/' . $item->image) }}"
+                                                alt="{{ $item->alt }}" class="w-full">
+                                    </div>
+                                @endif
+                                </div>
                             <div class="w-full mt-4 md:mt-0">
                                 <div class="mb-4 font-secondary font-medium text-sm text-dark lg:text-base">
                                     {!! $item->description !!}

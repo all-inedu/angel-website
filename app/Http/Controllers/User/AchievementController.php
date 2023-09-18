@@ -13,10 +13,17 @@ class AchievementController extends Controller
     {
         // Get all award & achievements from database
         // Order by updated at from newest to oldest
-        $awardAchievements = AwardAchievement::orderBy('competition_date', 'desc')->orderBy('updated_at')->paginate(3);
+        $awardAchievements = AwardAchievement::orderBy('competition_date', 'desc')->orderBy('updated_at')->paginate(
+           $perpage = 3, $columns = ['*'],  $pageName = 'achievements'
+        );
+
+        $otherActivities = AwardAchievement::orderBy('competition_date', 'desc')->orderBy('updated_at')->paginate(
+           $perpage = 3, $columns = ['*'],  $pageName = 'other-activities'
+        );
 
         return view('user.achievements', [
             'award_achievements' => $awardAchievements,
+            'other_activities' => $otherActivities,
         ]);
     }
 }

@@ -25,7 +25,7 @@
                                 @if ($item->competition_date)
                                     <div class="mt-4">
                                         <span class="font-secondary text-grey text-base lg:text-xl">
-                                            {{ date("d F Y", strtotime($item->competition_date)) }}
+                                            {{ date("Y", strtotime($item->competition_date)) }}
                                         </span>
                                     </div>
                                 @endif
@@ -53,7 +53,7 @@
         <div class="max-w-screen-lg mx-auto px-4 py-2">
             <div class="py-10">
                 <ul class="flex flex-col gap-x-4 gap-y-14 mb-6">
-                    @foreach ($award_achievements as $item)
+                    @foreach ($other_activities as $item)
                         <li class="flex flex-col md:gap-8 md:flex-row">
                             <div class="w-full">
                                 <h4 class="font-primary font-bold text-3xl text-primary lg:text-4xl lg:-mb-0">
@@ -79,7 +79,7 @@
                         </li>
                     @endforeach
                 </ul>
-                {{ $award_achievements->links('layout.pagination.tailwind') }}
+                {{ $other_activities->links('layout.pagination.tailwind') }}
             </div>
         </div>
     </section>

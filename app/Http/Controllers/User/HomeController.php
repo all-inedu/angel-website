@@ -5,6 +5,7 @@ namespace App\Http\Controllers\User;
 use App\Http\Controllers\Controller;
 use App\Models\ChangeMakingProject;
 use App\Models\ContactWithMe;
+use App\Models\Projects;
 use App\Models\SpeakingOpportunities;
 use Exception;
 use Illuminate\Contracts\View\View;
@@ -20,22 +21,10 @@ class HomeController extends Controller
         // Get all Change making projects from database
         // Order by is highlight after date updated_at
         // And take 3 from top result
-        $changeMakingProjects = ChangeMakingProject::where('is_highlight', 'true')->orderBy("end_date")->orderBy('updated_at')->get();
-
-        // Get all Speaking Opportunities from database
-        // Order by is highlight after date updated_at
-        // and take 3 from top result
-        $speakingOpportunities = SpeakingOpportunities::where('is_highlight', 'true')->orderBy("event_date")->orderBy('updated_at')->get();
-
-        // Get id video from given youtube link
-        // and put in into video_link_id variable
-        foreach ($speakingOpportunities as $item) {
-            $item['video_link_id'] = substr($item->video_link, strrpos($item->video_link, '/') + 1);
-        }
+        $projects = Projects::where('is_highlight', 'true')->orderBy("start_date")->orderBy('updated_at')->get();
 
         return view('user.home', [
-            'change_making_projects' => $changeMakingProjects,
-            'speaking_opportunities' => $speakingOpportunities,
+            'projects' => $projects,
         ]);
     }
 
