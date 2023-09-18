@@ -139,7 +139,7 @@
                                                                 <div
                                                                     style="color:#fff;font-family:Montserrat, Trebuchet MS, Lucida Grande, Lucida Sans Unicode, Lucida Sans, Tahoma, sans-serif;font-size:38px;line-height:150%;text-align:center;mso-line-height-alt:57px;">
                                                                     <p style="margin: 0; word-break: break-word;">
-                                                                        <strong><span>Hi Danya, </span></strong>
+                                                                        <strong><span>Hi Angel, </span></strong>
                                                                     </p>
                                                                 </div>
                                                             </td>
@@ -154,7 +154,7 @@
                                                                 <div
                                                                     style="color:#fff;font-family:Montserrat, Trebuchet MS, Lucida Grande, Lucida Sans Unicode, Lucida Sans, Tahoma, sans-serif;font-size:22px;line-height:120%;text-align:center;mso-line-height-alt:26.4px;">
                                                                     <p style="margin: 0; word-break: break-word;">
-                                                                        <strong>There is a message that came from Danya
+                                                                        <strong>There is a message that came from Angel
                                                                             website!</strong>
                                                                     </p>
                                                                 </div>
