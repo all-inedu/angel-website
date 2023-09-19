@@ -71,8 +71,8 @@
                                 Awards & Achievements
                             </h5>
                         </a>
-                        <h4 class="fw-semibold mb-3">0
-                            {{-- {{ $award_achievements->count() }} --}}
+                        <h4 class="fw-semibold mb-3">
+                            {{ $award_achievements->count() }}
                         </h4>
                         <div class="d-flex align-items-center pb-1">
                             <span

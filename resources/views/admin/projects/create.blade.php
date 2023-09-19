@@ -84,7 +84,10 @@
                     <div class="form-group row flex-md-row flex-column align-items-center mb-0">
                         <label class="col-md-3 text-md-end text-start control-label col-form-label" for="">Image</label>
                         <div class="col-md-9 input-field border-start pb-2 pt-md-2">
-                            <input class="form-control" type="file" id="image" name="image" onchange="previewImage()">
+                            <div class="input-group input-with-btn">
+                                <input class="form-control " type="file" id="image" name="image" onchange="previewImage()">
+                                <button class="btn btn-primary" type="button" id="clear_file" disabled>Clear File</button>
+                            </div>
                             <div class="col d-none d-flex justify-content-start mt-2" id="img_preview_box">
                                 <img class="rounded" id="img_preview">
                             </div>
@@ -132,7 +135,7 @@
                 </div>
                 <div class="p-3 pt-0">
                     <div class="mb-0 text-center">
-                        <button type="submit" class="btn btn-info rounded-pill px-4">
+                        <button type="submit" class="btn btn-primary rounded-pill px-4">
                             Save
                         </button>
                     </div>
@@ -148,11 +151,20 @@
         const image = document.querySelector('#image')
         const imgPreview = document.querySelector('#img_preview')
         $("#img_preview_box").removeClass("d-none")
+        $('#clear_file').prop("disabled", false)
         const oFReader = new FileReader()
         oFReader.readAsDataURL(image.files[0])
         oFReader.onload = function(oFREvent){
             imgPreview.src = oFREvent.target.result
         }
     };
+
+    // Clear File
+    $('#clear_file').on('click', function() {
+        $('#clear_file').prop("disabled", true)
+        $('#image').val(null)
+        $("#img_preview_box").addClass("d-none")
+        $("#img_preview").attr('src', '')
+    });
 </script>
 @endsection

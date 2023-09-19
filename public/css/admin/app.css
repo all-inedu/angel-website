@@ -91,17 +91,25 @@ table td p {
 .r-separator .form-group {
     border-bottom: 1px solid #ebf1f6;
 }
+.input-with-btn input {
+    border-radius: 7px 0 0 7px;
+}
+.input-with-btn button {
+    font-size: 12px;
+}
 @media (max-width: 768px) {
     .input-field {
         border-left: 0 !important;
     }
 }
 
-#img_preview {
+#img_preview,
+#img_preview_data {
     width: 40%;
 }
 @media (max-width: 768px) {
-    #img_preview {
+    #img_preview,
+    #img_preview_data {
         width: 100%;
     }
 }

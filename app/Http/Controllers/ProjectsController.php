@@ -194,6 +194,16 @@ class ProjectsController extends Controller
                 $fileName = 'Projects-'.$time.'.'.$file_format;
                 $file->move($destinationPath, $fileName);
                 $projects->image = $fileName;
+            } else {
+                if (isset($_POST['delete_img'])) {
+                    if ($old_image_path = $projects->image) {
+                        $file_path = public_path('uploaded_files/'.'projects/'.$projects->created_at->format('Y').'/'.$projects->created_at->format('m').'/'.$old_image_path);
+                        if (File::exists($file_path)) {
+                            File::delete($file_path);
+                        }
+                        $projects->image = null;
+                    }
+                }
             }
             $projects->alt = $request->alt;
             $projects->description = $request->description;
