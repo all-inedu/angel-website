@@ -6,6 +6,7 @@ use App\Http\Controllers\AwardAchievementController;
 use App\Http\Controllers\ChangePasswordController;
 use App\Http\Controllers\ContactWithMeController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\OtherActivitiesController;
 use App\Http\Controllers\ProjectsController;
 use App\Http\Controllers\SpeakingOpportunitiesController;
 
@@ -43,16 +44,16 @@ Route::prefix('admin')->name('admin.')->group(function(){
             Route::post('/award-achievement/delete/{id}', 'delete')->name('delete_award_achievement');
         });
 
-        // Speaking Opportunities
-        Route::controller(SpeakingOpportunitiesController::class)->group(function () {
-            Route::get('/speaking-opportunities', 'index')->name('speaking_opportunities');
-            Route::get('/speaking-opportunities/data', 'getSpeakingOpportunities')->name('data_speaking_opportunities');
-            Route::get('/speaking-opportunities/create', 'create')->name('create_speaking_opportunities');
-            Route::post('/speaking-opportunities/store', 'store')->name('store_speaking_opportunities');
-            Route::get('/speaking-opportunities/{id}/edit', 'edit')->name('edit_speaking_opportunities');
-            Route::post('/speaking-opportunities/{id}/update', 'update')->name('update_speaking_opportunities');
-            Route::post('/speaking-opportunities/delete/{id}', 'delete')->name('delete_speaking_opportunities');
-            Route::post('/speaking-opportunities/highlight/{id}', 'set_highlight')->name('highlight_speaking_opportunities');
+        // Other Activities
+        Route::controller(OtherActivitiesController::class)->group(function () {
+            Route::get('/other-activities', 'index')->name('other_activities');
+            Route::get('/other-activities/data', 'getOtherActivities')->name('data_other_activities');
+            Route::get('/other-activities/create', 'create')->name('create_other_activities');
+            Route::post('/other-activities/store', 'store')->name('store_other_activities');
+            Route::get('/other-activities/{id}/edit', 'edit')->name('edit_other_activities');
+            Route::post('/other-activities/{id}/update', 'update')->name('update_other_activities');
+            Route::post('/other-activities/delete/{id}', 'delete')->name('delete_other_activities');
+            Route::post('/other-activities/highlight/{id}', 'set_highlight')->name('highlight_other_activities');
         });
 
         // Contact With Me

@@ -6,7 +6,7 @@
     <div class="card-body px-md-4 px-3 py-2">
         <div class="row align-items-center">
             <div class="col-md-9 col py-2">
-                <h4 class="fw-semibold">Projects</h4>
+                <h4 class="fw-semibold">Other Activities</h4>
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb m-0">
                         <li class="breadcrumb-item">
@@ -15,8 +15,8 @@
                             </a>
                         </li>
                         <li class="breadcrumb-item">
-                            <a class="text-muted text-decoration-none" href="{{ route('admin.projects') }}">
-                                Projects
+                            <a class="text-muted text-decoration-none" href="{{ route('admin.other_activities') }}">
+                                Other Activities
                             </a>
                         </li>
                         <li class="breadcrumb-item fw-semibold" aria-current="page">Update</li>
@@ -36,19 +36,19 @@
     <div class="col-12">
         <div class="card">
             <div class="card-body d-flex align-items-center justify-content-between px-md-4 px-3 pb-0">
-                <h5 class="fw-semibold">Update Project</h5>
-                <a class="btn btn-primary d-flex align-items-center fs-2" href="{{ route('admin.projects') }}" role="button">
+                <h5 class="fw-semibold">Update Other Activities</h5>
+                <a class="btn btn-primary d-flex align-items-center fs-2" href="{{ route('admin.other_activities') }}" role="button">
                     <i class="ti ti-arrow-left fs-5"></i>
                     <span class="d-md-block d-none ms-2">Back</span>
                 </a>
             </div>
-            <form class="form-horizontal r-separator" action="{{ route('admin.update_projects', ['id' => $projects->id]) }}" method="POST" enctype="multipart/form-data">
+            <form class="form-horizontal r-separator" action="{{ route('admin.update_other_activities', ['id' => $other_activities->id]) }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="card-body px-md-4 px-3 py-3">
                     <div class="form-group row flex-md-row flex-column align-items-center mb-0 border-top">
                         <label class="col-md-3 text-md-end text-start control-label col-form-label" for="">Organization Name <span class="fs-4" style="color: crimson">*</span></label>
                         <div class="col-md-9 input-field border-start pb-2 pt-md-2">
-                            <input type="text" class="form-control" name="organization_name" value="{{ $projects->organization_name }}" placeholder="Organization Name">
+                            <input type="text" class="form-control" name="organization_name" value="{{ $other_activities->organization_name }}" placeholder="Organization Name">
                             @error('organization_name')
                                 <small class="alert text-danger ps-0">{{ $message }}</small>
                             @enderror
@@ -57,7 +57,7 @@
                     <div class="form-group row flex-md-row flex-column align-items-center mb-0">
                         <label class="col-md-3 text-md-end text-start control-label col-form-label" for="">Roles <span class="fs-4" style="color: crimson">*</span></label>
                         <div class="col-md-9 input-field border-start pb-2 pt-md-2">
-                            <input type="text" class="form-control" name="roles" value="{{ $projects->roles }}" placeholder="Roles">
+                            <input type="text" class="form-control" name="roles" value="{{ $other_activities->roles }}" placeholder="Roles">
                             @error('roles')
                                 <small class="alert text-danger ps-0">{{ $message }}</small>
                             @enderror
@@ -66,7 +66,7 @@
                     <div class="form-group row flex-md-row flex-column align-items-center mb-0">
                         <label class="col-md-3 text-md-end text-start control-label col-form-label" for="">Start Date</label>
                         <div class="col-md-3 input-field border-start pb-2 pt-md-2">
-                            <input type="month" class="form-control" name="start_date" value="{{ $projects->start_date ? date('Y-m', strtotime($projects->start_date)) : '' }}">
+                            <input type="month" class="form-control" name="start_date" value="{{ $other_activities->start_date ? date('Y-m', strtotime($other_activities->start_date)) : '' }}">
                             @error('start_date')
                                 <small class="alert text-danger ps-0">{{ $message }}</small>
                             @enderror
@@ -75,7 +75,7 @@
                     <div class="form-group row flex-md-row flex-column align-items-center mb-0">
                         <label class="col-md-3 text-md-end text-start control-label col-form-label" for="">End Date</label>
                         <div class="col-md-3 input-field border-start pb-2 pt-md-2">
-                            <input type="month" class="form-control" name="end_date" value="{{ $projects->end_date ? date('Y-m', strtotime($projects->end_date)) : '' }}">
+                            <input type="month" class="form-control" name="end_date" value="{{ $other_activities->end_date ? date('Y-m', strtotime($other_activities->end_date)) : '' }}">
                             @error('end_date')
                                 <small class="alert text-danger ps-0">{{ $message }}</small>
                             @enderror
@@ -92,13 +92,13 @@
                                     </div>
                                 </div>
                                 <div class="form-check form-check-inline mb-md-0 mb-2">
-                                    <input class="form-check-input" type="checkbox" id="delete_img" name="delete_img" value="delete" {{ $projects->image ? '' : 'disabled' }}>
+                                    <input class="form-check-input" type="checkbox" id="delete_img" name="delete_img" value="delete" {{ $other_activities->image ? '' : 'disabled' }}>
                                     <label class="form-check-label fw-bolder" for="delete_img">Delete Image</label>
                                 </div>
                             </div>
-                            <div class="col {{ $projects->image ? '' : 'd-none' }} d-flex justify-content-start mt-2" id="img_preview_box">
-                                @if ($projects->image)
-                                    <img class="rounded" id="img_preview_data" src="{{ $projects->image ? asset('uploaded_files/'.'projects/'.$projects->created_at->format('Y').'/'.$projects->created_at->format('m').'/'.$projects->image) : '' }}">
+                            <div class="col {{ $other_activities->image ? '' : 'd-none' }} d-flex justify-content-start mt-2" id="img_preview_box">
+                                @if ($other_activities->image)
+                                    <img class="rounded" id="img_preview_data" src="{{ $other_activities->image ? asset('uploaded_files/'.'other_activities/'.$other_activities->created_at->format('Y').'/'.$other_activities->created_at->format('m').'/'.$other_activities->image) : '' }}">
                                 @endif
                                 <img class="rounded d-none" id="img_preview">
                             </div>
@@ -110,7 +110,7 @@
                     <div class="form-group row flex-md-row flex-column align-items-center mb-0">
                         <label class="col-md-3 text-md-end text-start control-label col-form-label" for="">Alt</label>
                         <div class="col-md-9 input-field border-start pb-2 pt-md-2">
-                            <input type="text" class="form-control" name="alt" value="{{ $projects->alt }}" placeholder="Alt">
+                            <input type="text" class="form-control" name="alt" value="{{ $other_activities->alt }}" placeholder="Alt">
                             @error('alt')
                                 <small class="alert text-danger ps-0">{{ $message }}</small>
                             @enderror
@@ -120,7 +120,7 @@
                         <label class="col-md-3 text-md-end text-start control-label col-form-label" for="">Description <span class="fs-4" style="color: crimson">*</span></label>
                         <div class="col-md-9 input-field border-start pb-2 pt-md-2">
                             <textarea name="description">
-                                {{ $projects->description }}
+                                {{ $other_activities->description }}
                             </textarea>
                             @error('description')
                                 <small class="alert text-danger ps-0">{{ $message }}</small>
@@ -128,19 +128,12 @@
                         </div>
                     </div>
                     <div class="form-group row flex-md-row flex-column align-items-center mb-0">
-                        <label class="col-md-3 text-md-end text-start control-label col-form-label" for="">Button Title</label>
+                        <label class="col-md-3 text-md-end text-start control-label col-form-label" for="">Brief Description <span class="fs-4" style="color: crimson">*</span></label>
                         <div class="col-md-9 input-field border-start pb-2 pt-md-2">
-                            <input type="text" class="form-control" name="button_title" value="{{ $projects->button_title }}" placeholder="Button Title">
-                            @error('button_title')
-                                <small class="alert text-danger ps-0">{{ $message }}</small>
-                            @enderror
-                        </div>
-                    </div>
-                    <div class="form-group row flex-md-row flex-column align-items-center mb-0">
-                        <label class="col-md-3 text-md-end text-start control-label col-form-label" for="">Button Link</label>
-                        <div class="col-md-9 input-field border-start pb-2 pt-md-2">
-                            <input type="url" class="form-control" name="button_link" value="{{ $projects->button_link }}" placeholder="Button Link">
-                            @error('button_link')
+                            <textarea name="brief_description">
+                                {{ $other_activities->brief_description }}
+                            </textarea>
+                            @error('brief_description')
                                 <small class="alert text-danger ps-0">{{ $message }}</small>
                             @enderror
                         </div>
