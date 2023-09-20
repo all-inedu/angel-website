@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 18, 2023 at 04:59 AM
+-- Generation Time: Sep 20, 2023 at 09:29 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -134,6 +134,14 @@ CREATE TABLE `tb_award_achievements` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `tb_award_achievements`
+--
+
+INSERT INTO `tb_award_achievements` (`id`, `competition_name`, `award_name`, `image`, `alt`, `competition_date`, `created_at`, `updated_at`) VALUES
+(3, 'Singapore Kangaroo Math Competition', 'Bronze Medal - Global Ranking', 'Award-Achievement-20230918104802.png', 'Singapore Kangaroo Math Competition', '2023-01-01', '2023-09-18 03:05:08', '2023-09-19 07:37:45'),
+(4, 'Asia International Mathematical Olympiad', 'Bronze Medal', 'Award-Achievement-20230918153937.png', 'Asia International Mathematical Olympiad', '2023-01-01', '2023-09-18 03:49:41', '2023-09-19 07:38:06');
+
 -- --------------------------------------------------------
 
 --
@@ -171,6 +179,15 @@ CREATE TABLE `tb_other_activities` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `tb_other_activities`
+--
+
+INSERT INTO `tb_other_activities` (`id`, `organization_name`, `roles`, `start_date`, `end_date`, `image`, `alt`, `description`, `brief_description`, `is_highlight`, `created_at`, `updated_at`) VALUES
+(4, 'Lasallian Council, St. Joseph’s Institution International', 'Head of Media and Publications', '2022-04-01', '2023-09-01', 'Other-Activities-20230920111214.png', 'Lasallian Council, St. Joseph’s Institution International', '<p>Angel spearheads the planning and execution of diverse school events. Her creative prowess shines through in the design of House Shirts and school merchandise, adding vibrant energy to campus life. Angel amplifies event awareness through strategic social media campaigns, elevating student participation and involvement. Her collaborative spirit ensures seamless coordination among different leadership groups, fostering an environment of unity and enthusiasm.</p>', '<p><strong>Project Management | Creative Design | Event Planning and Execution | Social Media Management</strong></p>', 'false', '2023-09-20 04:12:14', '2023-09-20 04:12:14'),
+(5, 'Service Learning Council, St. Joseph’s Institution International', 'Head of Outreach', '2022-04-01', '2023-09-01', 'Other-Activities-20230920111451.png', 'Service Learning Council, St. Joseph’s Institution International', '<p>Angel\'s commitment to community service shines as the Head of Outreach in the Service Learning Council. She leaves her mark through captivating designs of service-oriented materials, from posters to postcards. Through the management of the official Service Learning website and Instagram page, Angel showcases her proficiency in communication and digital outreach. Her role extends to guiding and fostering collaboration among numerous student-led service initiatives, amplifying the school\'s impact on the community.</p>\r\n<p>In 2022, the Service Learning Council helped the SJII community:</p>\r\n<ul>\r\n<li>Raise $200,000 SGD in total fundraising efforts</li>\r\n<li>Collaborate with 30 service organisations worldwide</li>\r\n<li>Operate 60 independent, student-led, service projects</li>\r\n<li>Mobilise 400 students to operate these service projects</li>\r\n</ul>\r\n<p>&nbsp;</p>', '<p><strong>Graphic Design | Website Management | Leadership &amp; Collaboration | Event Promotion | Digital Outreach | Networking &amp; Relationship Building</strong></p>', 'false', '2023-09-20 04:14:51', '2023-09-20 04:14:51'),
+(6, 'Peer Mentoring', 'Head of Media and Publications', '2022-04-01', '2022-08-01', NULL, NULL, '<p>During her tenure as a member of the Peer Mentoring program, Angel played a vital role in helping new grade 7 students transition smoothly into the school community. Her dedication to fostering a sense of belonging is evident through thoughtfully organized workshops that fostered bonds among students. Through her mentorship, Angel instilled a sense of confidence and ease in the newcomers, contributing to the positive school experience of all involved.</p>', '<p><strong>Mentorship &amp; Guidance | Organizational Skill | Public Speaking | Leadership &amp; Role Modeling | Time Management</strong></p>', 'false', '2023-09-20 07:19:10', '2023-09-20 07:25:38');
+
 -- --------------------------------------------------------
 
 --
@@ -199,7 +216,8 @@ CREATE TABLE `tb_projects` (
 
 INSERT INTO `tb_projects` (`id`, `organization_name`, `roles`, `start_date`, `end_date`, `image`, `alt`, `description`, `button_title`, `button_link`, `is_highlight`, `created_at`, `updated_at`) VALUES
 (1, 'MUZARTT', 'CEO, Co-Founder', '2021-01-01', '2023-09-01', 'Projects-20230918090926.png', 'muzartt', '<p>A startup that aims to provide application-based virtual Music and Art therapy to elderly patients with dementia and other mental disabilities. Currently at the commitment stage (application programming) - launching in September 2023. Worked with a professor at UIUC to do research on conceptualising the business model and establishing Muzartt as a company.&nbsp;</p>\r\n<p>Role: Research and exploration of target market, creating business model, designer and creator of prototype, Website creator, Pitching to and converesed with different health organisations, hospitals and music therapists.</p>', 'Visit Muzartt', NULL, 'false', '2023-09-18 02:09:26', '2023-09-18 02:09:55'),
-(2, 'AKU BISA', 'Curriculum Creator, Co-Founder, Head Mentor', '2022-01-01', '2023-09-01', 'Projects-20230918095304.png', 'AKU BISA', '<p>Aku Bisa is a student-led service initiative with a vision to cultivate young entrepreneurs (from underprivileged backgrounds) who are adopters of modern technology that are able to bring prosperity to and strengthen the economy of the community around them. Aku Bisa believes that entrepreneurship is key to breaking the chain of vicious economic cycles that plagued many poverty pockets in developing countries.</p>\r\n<p>To achieve its vision, Angel developed a curriculum specially crafted not only to introduce entrepreneurship, business concepts, e-commerce and digital skills through simple terms and engaging materials, but also to nurture confidence, communication and collaboration skills. This curriculum is then applied to weekly lessons and trainings led by Aku Bisa mentors.</p>\r\n<p>Aku Bisa is currently working together with three organisations: Rumah Belajar Parousia in Desa Kapan, Indonesia, Rumah Pelangi Kasih in Bandung, Indonesia, and Covenant Evangelical Church in Singapore, providing hands on training to more than 100 mentees To date, Aku Bisa has helped them to launch 3 online ventures.</p>\r\n<p>Aku Bisa has shared its resources (curriculum and lesson plans) to 5 other organisations which further impact more than 350 young people. As an open platform, any individuals or organisations who share a similar vision with Aku Bisa are welcomed to join the team as mentors or collaborate in service projects.</p>', 'Visit Aku Bisa', NULL, 'false', '2023-09-18 02:53:04', '2023-09-18 02:53:04');
+(2, 'AKU BISA', 'Curriculum Creator, Co-Founder, Head Mentor', '2022-01-01', '2023-09-01', 'Projects-20230918095304.png', 'AKU BISA', '<p>Aku Bisa is a student-led service initiative with a vision to cultivate young entrepreneurs (from underprivileged backgrounds) who are adopters of modern technology that are able to bring prosperity to and strengthen the economy of the community around them. Aku Bisa believes that entrepreneurship is key to breaking the chain of vicious economic cycles that plagued many poverty pockets in developing countries.</p>\r\n<p>To achieve its vision, Angel developed a curriculum specially crafted not only to introduce entrepreneurship, business concepts, e-commerce and digital skills through simple terms and engaging materials, but also to nurture confidence, communication and collaboration skills. This curriculum is then applied to weekly lessons and trainings led by Aku Bisa mentors.</p>\r\n<p>Aku Bisa is currently working together with three organisations: Rumah Belajar Parousia in Desa Kapan, Indonesia, Rumah Pelangi Kasih in Bandung, Indonesia, and Covenant Evangelical Church in Singapore, providing hands on training to more than 100 mentees To date, Aku Bisa has helped them to launch 3 online ventures.</p>\r\n<p>Aku Bisa has shared its resources (curriculum and lesson plans) to 5 other organisations which further impact more than 350 young people. As an open platform, any individuals or organisations who share a similar vision with Aku Bisa are welcomed to join the team as mentors or collaborate in service projects.</p>', 'Visit Aku Bisa', NULL, 'false', '2023-09-18 02:53:04', '2023-09-18 03:41:38'),
+(4, 'KNOCKNOCK.CO and KNOCKNOCK.BEAUTY', 'CEO, CTO, Co-Founder/Owner', '2020-05-01', '2023-09-01', NULL, NULL, '<p>An e-commerce business that actively markets fashion, makeup, food and other consumer goods items from Europe and Singapore to primarily Indonesian customers. Knocknock and Knocknock beauty products are sold through various online channels and marketplaces. On top of that, it has successfully built a network of more than 20 resellers that are equally passionate about e-commerce. Angel coded an internal stock system for the company to use. Annual turnover of USD $50,000</p>', 'Visit Knocknock', NULL, 'false', '2023-09-20 07:24:10', '2023-09-20 07:24:10');
 
 -- --------------------------------------------------------
 
@@ -319,7 +337,7 @@ ALTER TABLE `tb_admins`
 -- AUTO_INCREMENT for table `tb_award_achievements`
 --
 ALTER TABLE `tb_award_achievements`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `tb_contact_with_me`
@@ -331,13 +349,13 @@ ALTER TABLE `tb_contact_with_me`
 -- AUTO_INCREMENT for table `tb_other_activities`
 --
 ALTER TABLE `tb_other_activities`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `tb_projects`
 --
 ALTER TABLE `tb_projects`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `users`
