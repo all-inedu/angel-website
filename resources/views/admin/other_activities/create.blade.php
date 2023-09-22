@@ -6,7 +6,7 @@
     <div class="card-body px-md-4 px-3 py-2">
         <div class="row align-items-center">
             <div class="col-md-9 col py-2">
-                <h4 class="fw-semibold">Projects</h4>
+                <h4 class="fw-semibold">Other Activities</h4>
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb m-0">
                         <li class="breadcrumb-item">
@@ -15,8 +15,8 @@
                             </a>
                         </li>
                         <li class="breadcrumb-item">
-                            <a class="text-muted text-decoration-none" href="{{ route('admin.projects') }}">
-                                Projects
+                            <a class="text-muted text-decoration-none" href="{{ route('admin.other_activities') }}">
+                                Other Activities
                             </a>
                         </li>
                         <li class="breadcrumb-item fw-semibold" aria-current="page">Create</li>
@@ -36,13 +36,13 @@
     <div class="col-12">
         <div class="card">
             <div class="card-body d-flex align-items-center justify-content-between px-md-4 px-3 pb-0">
-                <h5 class="fw-semibold">Create New Projects</h5>
-                <a class="btn btn-primary d-flex align-items-center fs-2" href="{{ route('admin.projects') }}" role="button">
+                <h5 class="fw-semibold">Create New Other Activities</h5>
+                <a class="btn btn-primary d-flex align-items-center fs-2" href="{{ route('admin.other_activities') }}" role="button">
                     <i class="ti ti-arrow-left fs-5"></i>
                     <span class="d-md-block d-none ms-2">Back</span>
                 </a>
             </div>
-            <form class="form-horizontal r-separator" action="{{ route('admin.store_projects') }}" method="POST" enctype="multipart/form-data">
+            <form class="form-horizontal r-separator" action="{{ route('admin.store_other_activities') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="card-body px-md-4 px-3 py-3">
                     <div class="form-group row flex-md-row flex-column align-items-center mb-0 border-top">
@@ -115,19 +115,10 @@
                         </div>
                     </div>
                     <div class="form-group row flex-md-row flex-column align-items-center mb-0">
-                        <label class="col-md-3 text-md-end text-start control-label col-form-label" for="">Button Title</label>
+                        <label class="col-md-3 text-md-end text-start control-label col-form-label" for="">Brief Description <span class="fs-4" style="color: crimson">*</span></label>
                         <div class="col-md-9 input-field border-start pb-2 pt-md-2">
-                            <input type="text" class="form-control" name="button_title" value="{{ old('button_title') }}" placeholder="Button Title">
-                            @error('button_title')
-                                <small class="alert text-danger ps-0">{{ $message }}</small>
-                            @enderror
-                        </div>
-                    </div>
-                    <div class="form-group row flex-md-row flex-column align-items-center mb-0">
-                        <label class="col-md-3 text-md-end text-start control-label col-form-label" for="">Button Link</label>
-                        <div class="col-md-9 input-field border-start pb-2 pt-md-2">
-                            <input type="url" class="form-control" name="button_link" value="{{ old('button_link') }}" placeholder="Button Link">
-                            @error('button_link')
+                            <textarea name="brief_description"></textarea>
+                            @error('brief_description')
                                 <small class="alert text-danger ps-0">{{ $message }}</small>
                             @enderror
                         </div>

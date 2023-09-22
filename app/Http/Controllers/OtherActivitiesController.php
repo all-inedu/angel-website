@@ -3,24 +3,24 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Projects;
-use Yajra\DataTables\Facades\DataTables;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Str;
-use Illuminate\Support\Facades\Redirect;
+use App\Models\OtherActivities;
 use Exception;
-use Illuminate\Support\Facades\File;
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Redirect;
+use Yajra\DataTables\Facades\DataTables;
+use Illuminate\Support\Str;
 
-class ProjectsController extends Controller
+class OtherActivitiesController extends Controller
 {
     public function index(){
-        return view('admin.projects.index');
+        return view('admin.other_activities.index');
     }
 
-    public function getProjects(Request $request){
+    public function getOtherActivities(Request $request){
         if ($request->ajax()) {
-            $data = Projects::orderBy('is_highlight', 'desc')->orderBy('updated_at', 'desc')->get();
+            $data = OtherActivities::orderBy('is_highlight', 'desc')->orderBy('updated_at', 'desc')->get();
             return DataTables::of($data)
             ->addIndexColumn()
             ->editColumn('date', function($d){
@@ -45,7 +45,7 @@ class ProjectsController extends Controller
             })
             ->editColumn('image', function($d){
                 if ($d->image) {
-                    $path = asset('uploaded_files/'.'projects/'.$d->created_at->format('Y').'/'.$d->created_at->format('m').'/'.$d->image);
+                    $path = asset('uploaded_files/'.'other_activities/'.$d->created_at->format('Y').'/'.$d->created_at->format('m').'/'.$d->image);
                     $result = '
                         <img data-original="'.$path.'" src="'.$path.'" alt="'.$d->alt.'" width="150" loading="lazy">
                     ';
@@ -61,7 +61,7 @@ class ProjectsController extends Controller
                 return $result;
             })
             ->editColumn('highlight', function($d){
-                $route = route('admin.highlight_projects', ['id' => $d->id]);
+                $route = route('admin.highlight_other_activities', ['id' => $d->id]);
                 $toggle = ($d->is_highlight == "false") ? "" : "checked";
                 $check = ($d->is_highlight == "false") ? "Off" : "On";
                 $result = '
@@ -80,11 +80,11 @@ class ProjectsController extends Controller
             ->editColumn('action', function($d){
                 $result = '
                 <div class="d-flex flex-column align-items-center justify-content-center gap-1">
-                    <a type="button" class="btn btn-warning bg-warning" href="/admin/projects/'.$d->id.'/edit">
-                        <i class="ti ti-edit fs-4" data-bs-toggle="tooltip" data-bs-title="Edit this Projects"></i>
+                    <a type="button" class="btn btn-warning bg-warning" href="/admin/other-activities/'.$d->id.'/edit">
+                        <i class="ti ti-edit fs-4" data-bs-toggle="tooltip" data-bs-title="Edit this Other Activities"></i>
                     </a>
                     <button type="button" class="btn btn-danger bg-danger" data-bs-toggle="modal" data-bs-target="#delete" onclick="formDelete('.$d->id.')">
-                        <i class="ti ti-trash fs-4" data-bs-toggle="tooltip" data-bs-title="Delete this Projects"></i>
+                        <i class="ti ti-trash fs-4" data-bs-toggle="tooltip" data-bs-title="Delete this Other Activities"></i>
                     </button>
                 </div>
                 ';
@@ -96,7 +96,7 @@ class ProjectsController extends Controller
     }
 
     public function create(){
-        return view('admin.projects.create');
+        return view('admin.other_activities.create');
     }
 
     public function store(Request $request){
@@ -108,47 +108,45 @@ class ProjectsController extends Controller
             'image' => 'nullable|mimes:jpeg,jpg,png,bmp,webp|max:2048',
             'alt' => 'nullable',
             'description' => 'required',
-            'button_title' => 'nullable',
-            'button_link' => 'nullable|url',
+            'brief_description' => 'required',
         ]);
 
         DB::beginTransaction();
         try {
-            $projects = new Projects();
-            $projects->organization_name = $request->organization_name;
-            $projects->roles = $request->roles;
+            $other_activities = new OtherActivities();
+            $other_activities->organization_name = $request->organization_name;
+            $other_activities->roles = $request->roles;
             if ($request->start_date) {
-                $projects->start_date = Carbon::createFromFormat('Y-m', $request->start_date)->day(1);
+                $other_activities->start_date = Carbon::createFromFormat('Y-m', $request->start_date)->day(1);
             }
             if ($request->end_date) {
-                $projects->end_date = Carbon::createFromFormat('Y-m', $request->end_date)->day(1);
+                $other_activities->end_date = Carbon::createFromFormat('Y-m', $request->end_date)->day(1);
             }
             if ($request->hasFile('image')) {
                 $file = $request->file('image');
                 $file_format = $request->file('image')->getClientOriginalExtension();
-                $destinationPath = public_path().'/uploaded_files/'.'projects/'.date('Y').'/'.date('m').'/';
+                $destinationPath = public_path().'/uploaded_files/'.'other_activities/'.date('Y').'/'.date('m').'/';
                 $time = date('YmdHis');
-                $fileName = 'Projects-'.$time.'.'.$file_format;
+                $fileName = 'Other-Activities-'.$time.'.'.$file_format;
                 $file->move($destinationPath, $fileName);
-                $projects->image = $fileName;
+                $other_activities->image = $fileName;
             }
-            $projects->alt = $request->alt;
-            $projects->description = $request->description;
-            $projects->button_title = $request->button_title;
-            $projects->button_link = $request->button_link;
-            $projects->save();
+            $other_activities->alt = $request->alt;
+            $other_activities->description = $request->description;
+            $other_activities->brief_description = $request->brief_description;
+            $other_activities->save();
             DB::commit();
         } catch (Exception $e) {
             DB::rollBack();
             return Redirect::back()->withErrors($e->getMessage());
         }
-        return redirect()->route('admin.projects')->withSuccess('Projects Was Successfully Created');
+        return redirect()->route('admin.other_activities')->withSuccess('Other Activities Was Successfully Created');
     }
 
     public function edit($id){
-        $projects = Projects::find($id);
-        return view('admin.projects.update', [
-            'projects' => $projects
+        $other_activities = OtherActivities::find($id);
+        return view('admin.other_activities.update', [
+            'other_activities' => $other_activities
         ]);
     }
 
@@ -161,105 +159,103 @@ class ProjectsController extends Controller
             'image' => 'nullable|mimes:jpeg,jpg,png,bmp,webp|max:2048',
             'alt' => 'nullable',
             'description' => 'required',
-            'button_title' => 'nullable',
-            'button_link' => 'nullable|url',
+            'brief_description' => 'required',
         ]);
 
         DB::beginTransaction();
         try {
-            $projects = Projects::find($id);
-            $projects->organization_name = $request->organization_name;
-            $projects->roles = $request->roles;
+            $other_activities = OtherActivities::find($id);
+            $other_activities->organization_name = $request->organization_name;
+            $other_activities->roles = $request->roles;
             if ($request->start_date) {
-                $projects->start_date = Carbon::createFromFormat('Y-m', $request->start_date)->day(1);
+                $other_activities->start_date = Carbon::createFromFormat('Y-m', $request->start_date)->day(1);
             } else {
-                $projects->start_date = null;
+                $other_activities->start_date = null;
             }
             if ($request->end_date) {
-                $projects->end_date = Carbon::createFromFormat('Y-m', $request->end_date)->day(1);
+                $other_activities->end_date = Carbon::createFromFormat('Y-m', $request->end_date)->day(1);
             } else {
-                $projects->end_date = null;
+                $other_activities->end_date = null;
             }
             if ($request->hasFile('image')) {
-                if ($old_image_path = $projects->image) {
-                    $file_path = public_path('uploaded_files/'.'projects/'.$projects->created_at->format('Y').'/'.$projects->created_at->format('m').'/'.$old_image_path);
+                if ($old_image_path = $other_activities->image) {
+                    $file_path = public_path('uploaded_files/'.'other_activities/'.$other_activities->created_at->format('Y').'/'.$other_activities->created_at->format('m').'/'.$old_image_path);
                     if (File::exists($file_path)) {
                         File::delete($file_path);
                     }
                 }
                 $file = $request->file('image');
                 $file_format = $request->file('image')->getClientOriginalExtension();
-                $destinationPath = public_path().'/uploaded_files/'.'projects/'.date('Y').'/'.date('m').'/';
+                $destinationPath = public_path().'/uploaded_files/'.'other_activities/'.date('Y').'/'.date('m').'/';
                 $time = date('YmdHis');
-                $fileName = 'Projects-'.$time.'.'.$file_format;
+                $fileName = 'Other-Activities-'.$time.'.'.$file_format;
                 $file->move($destinationPath, $fileName);
-                $projects->image = $fileName;
+                $other_activities->image = $fileName;
             } else {
                 if (isset($_POST['delete_img'])) {
-                    if ($old_image_path = $projects->image) {
-                        $file_path = public_path('uploaded_files/'.'projects/'.$projects->created_at->format('Y').'/'.$projects->created_at->format('m').'/'.$old_image_path);
+                    if ($old_image_path = $other_activities->image) {
+                        $file_path = public_path('uploaded_files/'.'other_activities/'.$other_activities->created_at->format('Y').'/'.$other_activities->created_at->format('m').'/'.$old_image_path);
                         if (File::exists($file_path)) {
                             File::delete($file_path);
                         }
-                        $projects->image = null;
+                        $other_activities->image = null;
                     }
                 }
             }
-            $projects->alt = $request->alt;
-            $projects->description = $request->description;
-            $projects->button_title = $request->button_title;
-            $projects->button_link = $request->button_link;
-            $projects->save();
+            $other_activities->alt = $request->alt;
+            $other_activities->description = $request->description;
+            $other_activities->brief_description = $request->brief_description;
+            $other_activities->save();
             DB::commit();
         } catch (Exception $e) {
             DB::rollBack();
             return Redirect::back()->withErrors($e->getMessage());
         }
-        return redirect()->route('admin.projects')->withSuccess('Projects Was Successfully Updated');
+        return redirect()->route('admin.other_activities')->withSuccess('Other Activities Was Successfully Updated');
     }
 
     public function delete($id){
         DB::beginTransaction();
         try {
-            $projects = Projects::find($id);
-            if ($old_image_path = $projects->image) {
-                $file_path = public_path('uploaded_files/'.'projects/'.$projects->created_at->format('Y').'/'.$projects->created_at->format('m').'/'.$old_image_path);
+            $other_activities = OtherActivities::find($id);
+            if ($old_image_path = $other_activities->image) {
+                $file_path = public_path('uploaded_files/'.'other_activities/'.$other_activities->created_at->format('Y').'/'.$other_activities->created_at->format('m').'/'.$old_image_path);
                 if (File::exists($file_path)) {
                     File::delete($file_path);
                 }
             }
-            $projects->delete();
+            $other_activities->delete();
             DB::commit();
         } catch (Exception $e) {
             DB::rollBack();
             return Redirect::back()->withErrors($e->getMessage());
         }
-        return redirect()->route('admin.projects')->withSuccess('Projects Was Successfully Deleted');
+        return redirect()->route('admin.other_activities')->withSuccess('Other Activities Was Successfully Deleted');
     }
 
     public function set_highlight($id){
-        $count_highlight = Projects::where('is_highlight', 'true')->count();
+        $count_highlight = OtherActivities::where('is_highlight', 'true')->count();
         $message = '';
         DB::beginTransaction();
         try {
-            $projects = Projects::find($id);
-            if ($projects->is_highlight == 'false'){
+            $other_activities = OtherActivities::find($id);
+            if ($other_activities->is_highlight == 'false'){
                 if ($count_highlight >= 3) {
-                    return redirect()->route('admin.projects')->withErrors('Number of Highlights exceeds 3 Items');
+                    return redirect()->route('admin.other_activities')->withErrors('Number of Highlights exceeds 3 Items');
                 } else {
-                    $projects->is_highlight = 'true';
-                    $message = 'Projects has been Successfully Highlighted';
+                    $other_activities->is_highlight = 'true';
+                    $message = 'Other Activities has been Successfully Highlighted';
                 }
             } else {
-                $projects->is_highlight = 'false';
-                $message = 'Projects has been Successfully Removed from Highlight';
+                $other_activities->is_highlight = 'false';
+                $message = 'Other Activities has been Successfully Removed from Highlight';
             }
-            $projects->save();
+            $other_activities->save();
             DB::commit();
         } catch (Exception $e) {
             DB::rollBack();
             return Redirect::back()->withErrors($e->getMessage());
         }
-        return redirect()->route('admin.projects')->withSuccess($message);
+        return redirect()->route('admin.other_activities')->withSuccess($message);
     }
 }

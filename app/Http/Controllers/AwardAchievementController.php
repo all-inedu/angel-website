@@ -113,7 +113,7 @@ class AwardAchievementController extends Controller
             'competition_name' => 'required',
             'award_name' => 'required',
             'image' => 'nullable|mimes:jpeg,jpg,png,bmp,webp|max:2048',
-            'alt' => 'required',
+            'alt' => 'nullable',
             'competition_date' => 'nullable',
         ]);
 
@@ -137,9 +137,19 @@ class AwardAchievementController extends Controller
                 $fileName = 'Award-Achievement-'.$time.'.'.$file_format;
                 $file->move($destinationPath, $fileName);
                 $award_achievement->image = $fileName;
+            } else {
+                if (isset($_POST['delete_img'])) {
+                    if ($old_image_path = $award_achievement->image) {
+                        $file_path = public_path('uploaded_files/'.'award_achievement/'.$award_achievement->created_at->format('Y').'/'.$award_achievement->created_at->format('m').'/'.$old_image_path);
+                        if (File::exists($file_path)) {
+                            File::delete($file_path);
+                        }
+                        $award_achievement->image = null;
+                    }
+                }
             }
             if ($request->competition_date) {
-                $award_achievement->competition_date = Carbon::createFromFormat('Y-m', $request->competition_date)->day(1);
+                $award_achievement->competition_date = Carbon::createFromFormat('Y', $request->competition_date)->month(1)->day(1);
             } else {
                 $award_achievement->competition_date = null;
             }

@@ -46,7 +46,7 @@
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a class="sidebar-link {{ request()->is('admin/speaking-opportunities*') ? 'active' : '' }}" href="{{ route('admin.speaking_opportunities') }}">
+                    <a class="sidebar-link {{ request()->is('admin/other-activities*') ? 'active' : '' }}" href="{{ route('admin.other_activities') }}">
                         <span>
                             <i class="ti ti-speakerphone"></i>
                         </span>
