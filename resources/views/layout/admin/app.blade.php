@@ -36,13 +36,13 @@
 <body>
     <!-- Body Wrapper -->
     <div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full" data-sidebar-position="fixed" data-header-position="fixed" style="min-height: 100vh">
-        
+
         <!-- Sidebar -->
         @include('layout.admin.sidebar')
 
         <!-- Main Wrapper -->
         <div class="body-wrapper">
-            
+
             <!-- Header -->
             @include('layout.admin.header')
 

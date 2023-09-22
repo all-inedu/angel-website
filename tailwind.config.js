@@ -8,10 +8,10 @@ export default {
     theme: {
         extend: {
             colors: {
-                primary: "#8D2323",
+                primary: "#BB5A5A",
                 'primary-light': '#F3E9E9',
                 light: "#FFFFFF",
-                dark: "#000000",
+                dark: "#242626",
                 grey: "#54555B",
             },
             fontFamily: {
@@ -20,16 +20,14 @@ export default {
             },
             backgroundImage: {
                 "hero-section":
-                    "url('../../public/assets/images/danya_header.webp')",
-                "change-making-projects-section":
-                    "url('../../public/assets/images/change_making_projects.webp')",
-                "honors-accomplishments-section":
-                    "url('../../public/assets/images/honors_and_accomplishments.webp')",
-                "speaking-opportunities":
-                    "url('../../public/assets/images/speaking_opportunities.webp')",
-                "awards-achievements-section":
-                    "url('../../public/assets/images/awards_achievements.webp')",
-                footer: "url('../../public/assets/images/danya_footer.png')",
+                    "url('../../public/assets/images/angel-header.png')",
+                "projects-section":
+                    "url('../../public/assets/images/projects.png')",
+                "as-seen-as-section":
+                    "url('../../public/assets/images/as-seen-as.png')",
+                "achievements-section":
+                    "url('../../public/assets/images/achievement.png')",
+                footer: "url('../../public/assets/images/angel-footer.png')",
             },
         },
     },
