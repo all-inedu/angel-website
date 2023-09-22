@@ -41,15 +41,18 @@
         <div class="py-8 bg-as-seen-as-section bg-cover bg-center">
             <div class="max-w-screen-lg mx-auto px-4 py-2">
                 <h2 class="mt-4 font-primary font-bold text-3xl text-dark text-center uppercase py-6">As Seen On</h2>
-                <ul class="mt-8 flex justify-between gap-6">
+                <ul class="mt-8 flex justify-between items-center gap-6">
                     <li>
-                        <img src="{{ asset('assets/images/logo/UPH_logo.svg') }}" alt="UPH LOGO">
+                        <img src="{{ asset('assets/images/logo/liputan-6.png') }}" alt="UPH LOGO">
                     </li>
                     <li>
-                        <img src="{{ asset('assets/images/logo/UI_logo.svg') }}" alt="UI LOGO">
+                        <img src="{{ asset('assets/images/logo/suara-com.png') }}" alt="UI LOGO">
                     </li>
                     <li>
-                        <img src="{{ asset('assets/images/logo/HILO_logo.svg') }}" alt="HILO LOGO">
+                        <img src="{{ asset('assets/images/logo/times-indonesia.png') }}" alt="HILO LOGO">
+                    </li>
+                    <li>
+                        <img src="{{ asset('assets/images/logo/cnbc.png') }}" alt="HILO LOGO">
                     </li>
                 </ul>
 

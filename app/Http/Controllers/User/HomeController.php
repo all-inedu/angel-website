@@ -53,20 +53,23 @@ class HomeController extends Controller
             'email' => $validatedData['email'],
             'message_content' => $validatedData['message'],
         ];
+
+        // TODO: Update mail recipient
         $mailRecipient = "sjrnl27@gmail.com";
 
         DB::beginTransaction();
         try {
-            // Send email to danya email
-            Mail::send('mail.send-email', $emailContent, function ($mail) use ($mailRecipient, $emailContent) {
-                $mail->from($emailContent['email'], $emailContent['name']);
-                $mail->to($mailRecipient);
-                $mail->subject('Connect With Me!');
-            });
+            // TODO: Uncomment email function after mail recipient is updated
+            // Send email to angel email
+            // Mail::send('mail.send-email', $emailContent, function ($mail) use ($mailRecipient, $emailContent) {
+            //     $mail->from($emailContent['email'], $emailContent['name']);
+            //     $mail->to($mailRecipient);
+            //     $mail->subject('Connect With Me!');
+            // });
 
-            if (Mail::flushMacros()) {
-                return redirect(back()->with('failed_send', 'Failed To Send Email!')->getTargetUrl() . '#contact');
-            }
+            // if (Mail::flushMacros()) {
+            //     return redirect(back()->with('failed_send', 'Failed To Send Email!')->getTargetUrl() . '#contact');
+            // }
 
             ContactWithMe::create($validatedData);
             DB::commit();

@@ -154,8 +154,7 @@
                                                                 <div
                                                                     style="color:#fff;font-family:Montserrat, Trebuchet MS, Lucida Grande, Lucida Sans Unicode, Lucida Sans, Tahoma, sans-serif;font-size:22px;line-height:120%;text-align:center;mso-line-height-alt:26.4px;">
                                                                     <p style="margin: 0; word-break: break-word;">
-                                                                        <strong>There is a message that came from Angel
-                                                                            website!</strong>
+                                                                        <strong>You got a new message from Angel Website!</strong>
                                                                     </p>
                                                                 </div>
                                                             </td>
