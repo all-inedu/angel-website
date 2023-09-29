@@ -22,7 +22,7 @@ return new class extends Migration
             $table->text('description');
             $table->string('button_title')->nullable();
             $table->text('button_link')->nullable();
-            $table->enum('is_highlight', ['false', 'true'])->default('false');
+            $table->enum('is_highlight', ['inactive', 'active'])->default('inactive');
             $table->timestamps();
         });
     }

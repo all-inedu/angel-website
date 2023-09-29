@@ -62,8 +62,8 @@ class ProjectsController extends Controller
             })
             ->editColumn('highlight', function($d){
                 $route = route('admin.highlight_projects', ['id' => $d->id]);
-                $toggle = ($d->is_highlight == "false") ? "" : "checked";
-                $check = ($d->is_highlight == "false") ? "Off" : "On";
+                $toggle = ($d->is_highlight == "inactive") ? "" : "checked";
+                $check = ($d->is_highlight == "inactive") ? "Inactive" : "Active";
                 $result = '
                 <form action="'.$route.'" method="POST">
                     '.csrf_field().'
@@ -238,20 +238,15 @@ class ProjectsController extends Controller
     }
 
     public function set_highlight($id){
-        $count_highlight = Projects::where('is_highlight', 'true')->count();
         $message = '';
         DB::beginTransaction();
         try {
             $projects = Projects::find($id);
-            if ($projects->is_highlight == 'false'){
-                if ($count_highlight >= 3) {
-                    return redirect()->route('admin.projects')->withErrors('Number of Highlights exceeds 3 Items');
-                } else {
-                    $projects->is_highlight = 'true';
-                    $message = 'Projects has been Successfully Highlighted';
-                }
+            if ($projects->is_highlight == 'inactive'){
+                $projects->is_highlight = 'active';
+                $message = 'Projects has been Successfully Highlighted';
             } else {
-                $projects->is_highlight = 'false';
+                $projects->is_highlight = 'inactive';
                 $message = 'Projects has been Successfully Removed from Highlight';
             }
             $projects->save();
