@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('alt')->nullable();
             $table->text('description');
             $table->text('brief_description');
-            $table->enum('is_highlight', ['false', 'true'])->default('false');
+            $table->enum('is_highlight', ['inactive', 'active'])->default('inactive');
             $table->timestamps();
         });
     }

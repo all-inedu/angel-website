@@ -62,8 +62,8 @@ class OtherActivitiesController extends Controller
             })
             ->editColumn('highlight', function($d){
                 $route = route('admin.highlight_other_activities', ['id' => $d->id]);
-                $toggle = ($d->is_highlight == "false") ? "" : "checked";
-                $check = ($d->is_highlight == "false") ? "Off" : "On";
+                $toggle = ($d->is_highlight == "inactive") ? "" : "checked";
+                $check = ($d->is_highlight == "inactive") ? "Inactive" : "Active";
                 $result = '
                 <form action="'.$route.'" method="POST">
                     '.csrf_field().'
@@ -234,20 +234,15 @@ class OtherActivitiesController extends Controller
     }
 
     public function set_highlight($id){
-        $count_highlight = OtherActivities::where('is_highlight', 'true')->count();
         $message = '';
         DB::beginTransaction();
         try {
             $other_activities = OtherActivities::find($id);
-            if ($other_activities->is_highlight == 'false'){
-                if ($count_highlight >= 3) {
-                    return redirect()->route('admin.other_activities')->withErrors('Number of Highlights exceeds 3 Items');
-                } else {
-                    $other_activities->is_highlight = 'true';
-                    $message = 'Other Activities has been Successfully Highlighted';
-                }
+            if ($other_activities->is_highlight == 'inactive'){
+                $other_activities->is_highlight = 'active';
+                $message = 'Other Activities has been Successfully Highlighted';
             } else {
-                $other_activities->is_highlight = 'false';
+                $other_activities->is_highlight = 'inactive';
                 $message = 'Other Activities has been Successfully Removed from Highlight';
             }
             $other_activities->save();
