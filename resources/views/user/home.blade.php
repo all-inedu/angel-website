@@ -28,7 +28,18 @@
                     <h3 class="font-bold text-4xl text-dark">Who is</h3>
                     <h2 class="mt-2 font-primary font-bold text-6xl text-primary">Angle?</h2>
                     <p class="mt-2 text-lg leading-6 text-dark font-secondary font-medium text-justify">
-                        A young social entrepreneur and author who loves to learn, innovate, collaborate and educate. I hope that my work brings positive and sustainable impact to communities around me and inspire others to do likewise. My journey officially began as the founder, CEO and CTO of Knocknock.co and Knocknock.Beauty, e-commerce ventures that markets a variety of products sourced from Europe and Singapore through various online and social media channels. Then, seeing my grandmother’s declining mental state during the pandemic and the lack of accessibility to therapy moved me to start and become CEO of Muzartt, a mobile application that provides virtual art and music therapy to older adults who suffer from dementia and other mental issues. My entrepreneurship journey inspired me to then start Aku Bisa, a service initiative dedicated to educating and mentoring underprivileged individuals in the field of digital entrepreneurship with an aim to build a community of sustainable and modern entrepreneurs. Through Aku Bisa, I want to empower and mentor many young entrepreneurs like myself, to become changemakers in their own communities.
+                        A young social entrepreneur and author who loves to learn, innovate, collaborate and educate. I hope
+                        that my work brings positive and sustainable impact to communities around me and inspire others to
+                        do likewise. My journey officially began as the founder, CEO and CTO of Knocknock.co and
+                        Knocknock.Beauty, e-commerce ventures that markets a variety of products sourced from Europe and
+                        Singapore through various online and social media channels. Then, seeing my grandmother’s declining
+                        mental state during the pandemic and the lack of accessibility to therapy moved me to start and
+                        become CEO of Muzartt, a mobile application that provides virtual art and music therapy to older
+                        adults who suffer from dementia and other mental issues. My entrepreneurship journey inspired me to
+                        then start Aku Bisa, a service initiative dedicated to educating and mentoring underprivileged
+                        individuals in the field of digital entrepreneurship with an aim to build a community of sustainable
+                        and modern entrepreneurs. Through Aku Bisa, I want to empower and mentor many young entrepreneurs
+                        like myself, to become changemakers in their own communities.
                     </p>
                 </div>
             </div>
@@ -71,7 +82,7 @@
         <div class="max-w-screen-lg mx-auto px-4 py-2">
 
             <div class="py-10">
-                <ul class="flex flex-col gap-x-4 gap-y-10">
+                <ul class="flex flex-col gap-x-4 gap-y-10 mb-8">
                     @foreach ($projects as $item)
                         <li class="flex flex-col md:flex-row gap-x-16">
                             <div class="w-full">
@@ -86,17 +97,18 @@
                                 @if ($item->start_date)
                                     <div class="mt-3">
                                         <span class="font-secondary text-grey text-base lg:text-xl">
-                                            {{ date("F Y", strtotime($item->start_date)) }} - {{ date("F Y", strtotime($item->end_date)) }}
+                                            {{ date('F Y', strtotime($item->start_date)) }} -
+                                            {{ date('F Y', strtotime($item->end_date)) }}
                                         </span>
                                     </div>
                                 @endif
                                 @if ($item->image)
                                     <div class="w-full mt-4">
                                         <img src="{{ asset('uploaded_files/projects/' . $item->created_at->format('Y') . '/' . $item->created_at->format('m') . '/' . $item->image) }}"
-                                                alt="{{ $item->alt }}" class="w-full">
+                                            alt="{{ $item->alt }}" class="w-full">
                                     </div>
                                 @endif
-                                </div>
+                            </div>
                             <div class="w-full mt-4 md:mt-0">
                                 <div class="mb-4 font-secondary font-medium text-sm text-dark lg:text-base">
                                     {!! $item->description !!}
@@ -111,6 +123,8 @@
                         </li>
                     @endforeach
                 </ul>
+
+                {{ $projects->links('layout.pagination.tailwind') }}
             </div>
         </div>
     </section>
@@ -125,7 +139,8 @@
                 <h2 class="mb-2 font-primary font-bold text-3xl text-primary text-center lg:text-4xl">
                     LEARN MORE ABOUT ANGEL
                 </h2>
-                <a href="{{ route('achievements') }}" class="mx-auto px-4 py-2 font-secondary font-semibold text-lg text-light bg-primary uppercase">
+                <a href="{{ route('achievements') }}"
+                    class="mx-auto px-4 py-2 font-secondary font-semibold text-lg text-light bg-primary uppercase">
                     See Angel's Journey
                 </a>
             </div>
