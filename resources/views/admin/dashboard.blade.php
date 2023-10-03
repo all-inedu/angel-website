@@ -142,6 +142,45 @@
             <div class="card-body">
                 <div class="row align-items-start">
                     <div class="col-md-8 col">
+                        <a href="{{ route('admin.videos') }}">
+                            <h5 class="card-title mb-9 fw-semibold">
+                                Videos
+                            </h5>
+                        </a>
+                        <h4 class="fw-semibold mb-3">
+                            {{ $videos->count() }}
+                        </h4>
+                        <div class="d-flex align-items-center pb-1">
+                            <span
+                                class="me-2 rounded-circle bg-light-danger round-20 d-flex align-items-center justify-content-center">
+                                <i class="ti ti-note text-danger"></i>
+                            </span>
+                            <p class="text-dark me-1 fs-3 mb-0">
+                                Total in
+                            </p>
+                            <p class="fs-3 mb-0">
+                                {{ date('Y') }}
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-3">
+                        <div class="d-flex justify-content-end">
+                            <div class="text-white rounded-circle p-6 d-flex align-items-center justify-content-center" style="background: var(--red)">
+                                <i class="ti ti-brand-youtube fs-6"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col d-flex flex-md-row flex-column gap-md-3">
+    <div class="col">
+        <div class="card m-0">
+            <div class="card-body">
+                <div class="row align-items-start">
+                    <div class="col-md-8 col">
                         <a href="{{ route('admin.contact_with_me') }}">
                             <h5 class="card-title mb-9 fw-semibold">
                                 Contact With Me
@@ -173,6 +212,9 @@
                 </div>
             </div>
         </div>
+    </div>
+    <div class="col">
+        
     </div>
 </div>
 @endsection

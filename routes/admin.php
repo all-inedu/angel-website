@@ -9,6 +9,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\OtherActivitiesController;
 use App\Http\Controllers\ProjectsController;
 use App\Http\Controllers\SpeakingOpportunitiesController;
+use App\Http\Controllers\VideosController;
 
 Route::prefix('admin')->name('admin.')->group(function(){
 
@@ -54,6 +55,18 @@ Route::prefix('admin')->name('admin.')->group(function(){
             Route::post('/other-activities/{id}/update', 'update')->name('update_other_activities');
             Route::post('/other-activities/delete/{id}', 'delete')->name('delete_other_activities');
             Route::post('/other-activities/highlight/{id}', 'set_highlight')->name('highlight_other_activities');
+        });
+
+        // Videos
+        Route::controller(VideosController::class)->group(function () {
+            Route::get('/videos', 'index')->name('videos');
+            Route::get('/videos/data', 'getVideos')->name('data_videos');
+            Route::get('/videos/create', 'create')->name('create_videos');
+            Route::post('/videos/store', 'store')->name('store_videos');
+            Route::get('/videos/{id}/edit', 'edit')->name('edit_videos');
+            Route::post('/videos/{id}/update', 'update')->name('update_videos');
+            Route::post('/videos/delete/{id}', 'delete')->name('delete_videos');
+            Route::post('/videos/highlight/{id}', 'set_highlight')->name('highlight_videos');
         });
 
         // Contact With Me
