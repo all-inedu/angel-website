@@ -7,6 +7,7 @@ use App\Models\ChangeMakingProject;
 use App\Models\ContactWithMe;
 use App\Models\Projects;
 use App\Models\SpeakingOpportunities;
+use App\Models\Videos;
 use Exception;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
@@ -23,8 +24,15 @@ class HomeController extends Controller
         // And take 3 from top result
         $projects = Projects::where('is_highlight', 'true')->orderBy("start_date")->orderBy('updated_at')->paginate(5);
 
+        // Get video link from videos model
+        $video = Videos::where('is_highlight', 'active')->first();
+
+        if ($video) {
+            $video['video_link'] = substr($video->video_link, strrpos($video->video_link, '/') + 1);
+        }
         return view('user.home', [
             'projects' => $projects,
+            'video' => $video,
         ]);
     }
 
