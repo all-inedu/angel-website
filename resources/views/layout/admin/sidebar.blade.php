@@ -54,6 +54,14 @@
                     </a>
                 </li>
                 <li class="sidebar-item">
+                    <a class="sidebar-link {{ request()->is('admin/videos*') ? 'active' : '' }}" href="{{ route('admin.videos') }}">
+                        <span>
+                            <i class="ti ti-brand-youtube"></i>
+                        </span>
+                        <span class="hide-menu">Videos</span>
+                    </a>
+                </li>
+                <li class="sidebar-item">
                     <a class="sidebar-link {{ request()->is('admin/contact-with-me*') ? 'active' : '' }}" href="{{ route('admin.contact_with_me') }}">
                         <span>
                             <i class="ti ti-file-phone"></i>
