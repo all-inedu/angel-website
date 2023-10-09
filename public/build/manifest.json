@@ -1,0 +1,74 @@
+{
+  "public/assets/fonts/adobe-caslon-pro/ACaslonPro-Bold.otf": {
+    "file": "assets/ACaslonPro-Bold-f36dfb97.otf",
+    "src": "public/assets/fonts/adobe-caslon-pro/ACaslonPro-Bold.otf"
+  },
+  "public/assets/fonts/adobe-caslon-pro/ACaslonPro-Regular.otf": {
+    "file": "assets/ACaslonPro-Regular-1b84b880.otf",
+    "src": "public/assets/fonts/adobe-caslon-pro/ACaslonPro-Regular.otf"
+  },
+  "public/assets/fonts/adobe-caslon-pro/ACaslonPro-Semibold.otf": {
+    "file": "assets/ACaslonPro-Semibold-8dfbad93.otf",
+    "src": "public/assets/fonts/adobe-caslon-pro/ACaslonPro-Semibold.otf"
+  },
+  "public/assets/images/achievement.png": {
+    "file": "assets/achievement-137df14d.png",
+    "src": "public/assets/images/achievement.png"
+  },
+  "public/assets/images/angel-footer.png": {
+    "file": "assets/angel-footer-365671a8.png",
+    "src": "public/assets/images/angel-footer.png"
+  },
+  "public/assets/images/angel-header.png": {
+    "file": "assets/angel-header-d776f72d.png",
+    "src": "public/assets/images/angel-header.png"
+  },
+  "public/assets/images/as-seen-as.png": {
+    "file": "assets/as-seen-as-1d509380.png",
+    "src": "public/assets/images/as-seen-as.png"
+  },
+  "public/assets/images/projects.png": {
+    "file": "assets/projects-e0f7aab7.png",
+    "src": "public/assets/images/projects.png"
+  },
+  "public/css/admin/app.css": {
+    "file": "assets/app-08e16357.css",
+    "isEntry": true,
+    "src": "public/css/admin/app.css"
+  },
+  "public/css/icons/tabler-icons/fonts/tabler-icons.eot": {
+    "file": "assets/tabler-icons-eea094c0.eot",
+    "src": "public/css/icons/tabler-icons/fonts/tabler-icons.eot"
+  },
+  "public/css/icons/tabler-icons/fonts/tabler-icons.svg": {
+    "file": "assets/tabler-icons-ad454893.svg",
+    "src": "public/css/icons/tabler-icons/fonts/tabler-icons.svg"
+  },
+  "public/css/icons/tabler-icons/fonts/tabler-icons.ttf": {
+    "file": "assets/tabler-icons-4420bac6.ttf",
+    "src": "public/css/icons/tabler-icons/fonts/tabler-icons.ttf"
+  },
+  "public/css/icons/tabler-icons/fonts/tabler-icons.woff": {
+    "file": "assets/tabler-icons-65c0a2e1.woff",
+    "src": "public/css/icons/tabler-icons/fonts/tabler-icons.woff"
+  },
+  "public/css/icons/tabler-icons/fonts/tabler-icons.woff2": {
+    "file": "assets/tabler-icons-7a908f30.woff2",
+    "src": "public/css/icons/tabler-icons/fonts/tabler-icons.woff2"
+  },
+  "public/css/style.css": {
+    "file": "assets/style-2985d559.css",
+    "isEntry": true,
+    "src": "public/css/style.css"
+  },
+  "resources/css/app.css": {
+    "file": "assets/app-5ead2330.css",
+    "isEntry": true,
+    "src": "resources/css/app.css"
+  },
+  "resources/js/app.js": {
+    "file": "assets/app-0d91dc04.js",
+    "isEntry": true,
+    "src": "resources/js/app.js"
+  }
+}
