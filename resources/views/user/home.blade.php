@@ -2,14 +2,14 @@
 
 @section('main')
     {{-- Start Section: Hero --}}
-    <section class="h-screen bg-hero-section bg-red-100 bg-cover" style="background-position: top left 80%;">
+    <section class="h-screen bg-hero-section bg-cover" style="background-position: top left 80%;">
         <div class="max-w-screen-lg mx-auto px-4 py-2 h-full flex items-center">
             <div class="bg-blue -mt-10">
                 <h1 class="font-primary font-bold text-5xl text-primary lg:text-6xl">CLAUDIA<br> ANGELICA</h1>
                 <span class="font-secondary font-semibold text-lg text-dark lg:text-[22px]">
-                    CEO - FOUNDER - MENTOR - SOCIAL
+                    CEO - FOUNDER - MENTOR - AUTHOR -
                     <br>
-                    ENTREPRENEUR
+                    SOCIAL ENTREPRENEUR
                 </span>
             </div>
         </div>
@@ -19,27 +19,30 @@
     {{-- Start Section: Who Is Angle? --}}
     <section class="py-10">
         <div class="max-w-screen-lg mx-auto px-4 py-2">
-            <div class="grid grid-cols-2 items-stretch gap-4 sm:flex-row">
+            <div class="grid grid-cols-2 items-stretch gap-10 sm:flex-row">
                 <div class="w-full col-span-2 sm:col-span-1">
-                    <img src="{{ asset('assets/images/image_who_is_angel.png') }}" alt="Who Is Angel?"
+                    <img src="{{ asset('assets/images/about.webp') }}" alt="Who Is Angel?"
                         class="w-full h-full object-contain">
                 </div>
                 <div class="w-full flex flex-col mt-8 sm:mt-0 sm:justify-center col-span-2 sm:col-span-1">
-                    <h3 class="font-bold text-4xl text-dark">Who is</h3>
-                    <h2 class="mt-2 font-primary font-bold text-6xl text-primary">Angle?</h2>
+                    <h3 class="font-bold text-4xl text-dark">Hi, I'm</h3>
+                    <h2 class="mt-2 font-primary font-bold text-6xl text-primary">Angel?</h2>
                     <p class="mt-2 text-lg leading-6 text-dark font-secondary font-medium text-justify">
-                        A young social entrepreneur and author who loves to learn, innovate, collaborate and educate. I hope
-                        that my work brings positive and sustainable impact to communities around me and inspire others to
-                        do likewise. My journey officially began as the founder, CEO and CTO of Knocknock.co and
-                        Knocknock.Beauty, e-commerce ventures that markets a variety of products sourced from Europe and
-                        Singapore through various online and social media channels. Then, seeing my grandmother’s declining
-                        mental state during the pandemic and the lack of accessibility to therapy moved me to start and
-                        become CEO of Muzartt, a mobile application that provides virtual art and music therapy to older
-                        adults who suffer from dementia and other mental issues. My entrepreneurship journey inspired me to
-                        then start Aku Bisa, a service initiative dedicated to educating and mentoring underprivileged
-                        individuals in the field of digital entrepreneurship with an aim to build a community of sustainable
-                        and modern entrepreneurs. Through Aku Bisa, I want to empower and mentor many young entrepreneurs
-                        like myself, to become changemakers in their own communities.
+                        I’m a young social entrepreneur and author who loves to learn, innovate, collaborate and educate. I
+                        hope that my work brings positive and sustainable impact to communities around me and inspire others
+                        to do likewise.
+                        <br><br>
+                        My journey officially began as the founder, CEO and CTO of Knocknock.co and Knocknock.Beauty,
+                        e-commerce ventures that markets a variety of products sourced globally through various online
+                        channels. Then, seeing my grandmother’s declining mental state during the pandemic and the lack of
+                        accessibility to therapy moved me to start and become CEO of Muzartt, a mobile application that
+                        provides virtual art and music therapy to older adults.
+                        <br><br>
+                        My entrepreneurship journey then inspired me to then start Aku Bisa, an initiative dedicated to
+                        educating and mentoring underprivileged individuals in the field of digital entrepreneurship, aiming
+                        to build a community of sustainable and modern entrepreneurs. Through Aku Bisa, I want to empower
+                        and mentor many young entrepreneurs like myself, to become <b>changemakers in their
+                            own communities.</b>
                     </p>
                 </div>
             </div>

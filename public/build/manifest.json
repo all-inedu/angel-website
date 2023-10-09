@@ -15,17 +15,17 @@
     "file": "assets/achievement-137df14d.png",
     "src": "public/assets/images/achievement.png"
   },
-  "public/assets/images/angel-footer.png": {
-    "file": "assets/angel-footer-365671a8.png",
-    "src": "public/assets/images/angel-footer.png"
-  },
-  "public/assets/images/angel-header.png": {
-    "file": "assets/angel-header-d776f72d.png",
-    "src": "public/assets/images/angel-header.png"
-  },
   "public/assets/images/as-seen-as.png": {
     "file": "assets/as-seen-as-1d509380.png",
     "src": "public/assets/images/as-seen-as.png"
+  },
+  "public/assets/images/footer.webp": {
+    "file": "assets/footer-24f343ea.webp",
+    "src": "public/assets/images/footer.webp"
+  },
+  "public/assets/images/header.webp": {
+    "file": "assets/header-51984a5a.webp",
+    "src": "public/assets/images/header.webp"
   },
   "public/assets/images/projects.png": {
     "file": "assets/projects-e0f7aab7.png",
@@ -62,7 +62,7 @@
     "src": "public/css/style.css"
   },
   "resources/css/app.css": {
-    "file": "assets/app-5ead2330.css",
+    "file": "assets/app-77c4c43b.css",
     "isEntry": true,
     "src": "resources/css/app.css"
   },

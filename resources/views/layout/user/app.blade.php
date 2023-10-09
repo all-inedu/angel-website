@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Angel Website</title>
     <link rel="shortcut icon" type="image/png" href="{{ asset('images/profile/profile.webp') }}" />
-    <link rel="stylesheet" href="{{ asset('build/assets/app-5ead2330.css') }}">
-    {{-- @vite('resources/css/app.css')  --}}
+    <link rel="stylesheet" href="{{ asset('build/assets/app-77c4c43b.css') }}">
+    {{-- @vite('resources/css/app.css') --}}
 </head>
 
 <body>
