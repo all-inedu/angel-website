@@ -18,7 +18,7 @@ class AchievementController extends Controller
            $perpage = 5, $columns = ['*'],  $pageName = 'achievements'
         );
 
-        $otherActivities = OtherActivities::where('is_highlight', 'true')->orderBy('start_date', 'desc')->orderBy('updated_at')->paginate(
+        $otherActivities = OtherActivities::where('is_highlight', 'active')->orderBy('start_date', 'desc')->orderBy('updated_at')->paginate(
            $perpage = 5, $columns = ['*'],  $pageName = 'other-activities'
         );
 

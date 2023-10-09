@@ -22,7 +22,7 @@ class HomeController extends Controller
         // Get all Change making projects from database
         // Order by is highlight after date updated_at
         // And take 3 from top result
-        $projects = Projects::where('is_highlight', 'true')->orderBy("start_date")->orderBy('updated_at')->paginate(5);
+        $projects = Projects::where('is_highlight', 'active')->orderBy("start_date")->orderBy('updated_at')->paginate(5);
 
         // Get video link from videos model
         $video = Videos::where('is_highlight', 'active')->first();
