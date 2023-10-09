@@ -9,7 +9,7 @@ export default {
         extend: {
             colors: {
                 primary: "#BB5A5A",
-                'primary-light': '#F3E9E9',
+                "primary-light": "#F3E9E9",
                 light: "#FFFFFF",
                 dark: "#242626",
                 grey: "#54555B",
@@ -19,15 +19,14 @@ export default {
                 secondary: ["Montserrat", "sans-serif"],
             },
             backgroundImage: {
-                "hero-section":
-                    "url('../../public/assets/images/angel-header.png')",
+                "hero-section": "url('../../public/assets/images/header.webp')",
                 "projects-section":
                     "url('../../public/assets/images/projects.png')",
                 "as-seen-as-section":
                     "url('../../public/assets/images/as-seen-as.png')",
                 "achievements-section":
                     "url('../../public/assets/images/achievement.png')",
-                footer: "url('../../public/assets/images/angel-footer.png')",
+                footer: "url('../../public/assets/images/footer.webp')",
             },
         },
     },
