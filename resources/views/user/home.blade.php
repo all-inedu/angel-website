@@ -26,7 +26,7 @@
                 </div>
                 <div class="w-full flex flex-col mt-8 sm:mt-0 sm:justify-center col-span-2 sm:col-span-1">
                     <h3 class="font-bold text-4xl text-dark">Hi, I'm</h3>
-                    <h2 class="mt-2 font-primary font-bold text-6xl text-primary">Angel?</h2>
+                    <h2 class="mt-2 font-primary font-bold text-6xl text-primary">Angel</h2>
                     <p class="mt-2 text-lg leading-6 text-dark font-secondary font-medium text-justify">
                         I’m a young social entrepreneur and author who loves to learn, innovate, collaborate and educate. I
                         hope that my work brings positive and sustainable impact to communities around me and inspire others

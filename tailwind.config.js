@@ -19,14 +19,14 @@ export default {
                 secondary: ["Montserrat", "sans-serif"],
             },
             backgroundImage: {
-                "hero-section": "url('../../public/assets/images/header.webp')",
+                "hero-section": "url('../../public/assets/images/header.png')",
                 "projects-section":
                     "url('../../public/assets/images/projects.png')",
                 "as-seen-as-section":
                     "url('../../public/assets/images/as-seen-as.png')",
                 "achievements-section":
                     "url('../../public/assets/images/achievement.png')",
-                footer: "url('../../public/assets/images/footer.webp')",
+                footer: "url('../../public/assets/images/footer.png')",
             },
         },
     },
